@@ -3,7 +3,7 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - main  # Deploy only when changes are pushed to the main branch
+      - main
 
 jobs:
   deploy:
@@ -20,9 +20,13 @@ jobs:
 
       - name: Install MkDocs and Dependencies
         run: |
-          pip install mkdocs mkdocs-material  # Include additional MkDocs plugins/themes as needed
+          pip install mkdocs mkdocs-material  # Add any plugins or themes if needed
+
+      - name: Build the MkDocs Site
+        run: mkdocs build
 
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
-        env:
-          DEPLOY_KEY: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
