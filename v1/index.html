@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://jneatherynbc.github.io/nbcsports-statsapi-docs/v1/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>V1 - NBCSports-StatsAPI</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="..">NBCSports-StatsAPI</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">V1</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
+                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="fa-solid fa-sun fa-fw"></i>
+                                    <span class="ms-2">Light</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                                    <i class="fa-solid fa-moon fa-fw"></i>
+                                    <span class="ms-2">Dark</span>
+                                    <i class="fa-solid fa-check ms-auto"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                    <span class="ms-2">Auto</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#getting-started-with-v1" class="nav-link">Getting Started with V1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#quick-links" class="nav-link">Quick Links</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#response-wrapper" class="nav-link">Response Wrapper</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#last-update" class="nav-link">Last Update</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#pagination" class="nav-link">Pagination</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#data-endpoints" class="nav-link">Data Endpoints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#live-scoring-endpoints" class="nav-link">Live Scoring Endpoints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#static-table-endpoints" class="nav-link">Static Table Endpoints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="getting-started-with-v1">Getting Started with V1</h1>
+<hr />
+<h5 id="base-endpoint-urls">Base Endpoint URLs:</h5>
+<ul>
+<li>DEV: <code>https://scoring-dev.nbcsports.io/v1</code></li>
+<li>PROD: <code>https://scoring.nbcsports.io/v1</code></li>
+</ul>
+<h4 id="leagues">Leagues:</h4>
+<p>Below is a list of sports and league abbreviations that are supported by the API.</p>
+<ul>
+<li>Football<ul>
+<li>NFL (National Football League)</li>
+<li>CFB (College Football - FBS Only)</li>
+</ul>
+</li>
+<li>Basketball<ul>
+<li>NBA (National Basketball Association)</li>
+<li>CBK (Men's College Basketball - Division 1 Only)</li>
+<li>WCBK (Women's College Baskettball - Division 1 Only)</li>
+</ul>
+</li>
+<li>Baseball<ul>
+<li>MLB (Major League Baseball)</li>
+</ul>
+</li>
+<li>Hockey<ul>
+<li>NHL (National Hockey League)</li>
+</ul>
+</li>
+<li>Soccer<ul>
+<li>EPL (Premier League)</li>
+</ul>
+</li>
+<li>Motor<ul>
+<li>NASCAR (National Association for Stock Car Auto Racing)</li>
+<li>Truck (NASCAR Craftsman Truck Series)</li>
+<li>Xfinity (NASCAR Xfinity Series)</li>
+</ul>
+</li>
+<li>Golf<ul>
+<li>PGA (Professional Golfers' Association of America)</li>
+<li>LPGA (Ladies Professional Golf Association)</li>
+</ul>
+</li>
+<li>Horse Racing<ul>
+<li>HRAC (Horse Racing)</li>
+</ul>
+</li>
+<li>Tennis<ul>
+<li>ATP (Association of Tennis Professionals)</li>
+<li>WTA (Womens Tennis Association)</li>
+</ul>
+</li>
+<li>Cycling<ul>
+<li>TDF (Tour de France)</li>
+</ul>
+</li>
+</ul>
+<h1 id="quick-links">Quick Links</h1>
+<hr />
+<ul>
+<li><em>Data Endpoints</em><ul>
+<li><a href="#get-last-updates">Get Last Updates</a></li>
+<li><a href="#get-sports">Get Sports</a></li>
+<li><a href="#get-leagues">Get Leagues</a></li>
+<li><a href="#get-dictionary">Get Dictionary</a></li>
+<li><a href="#get-venues">Get Venues</a></li>
+<li><a href="#get-colleges">Get Colleges</a></li>
+<li><a href="#get-teams">Get Teams</a></li>
+<li><a href="#get-players">Get Players</a></li>
+<li><a href="#get-events">Get Events</a></li>
+<li><a href="#get-daily-schedule">Get Daily Schedule</a></li>
+<li><a href="#get-weekly-schedule">Get Weekly Schedule</a></li>
+<li><a href="#get-ap-articles">Get AP Articles</a></li>
+</ul>
+</li>
+<li><em>Live Scoring Endpoints</em></li>
+<li><em>Static Table Endpoints</em></li>
+</ul>
+<h1 id="response-wrapper">Response Wrapper</h1>
+<hr />
+<p>Each response has a wrapper around the core data of the endpoint. This wrapper is useful for pagination and iterating through large datasets.
+Below is a sample response wrapper:</p>
+<pre><code>{
+    &quot;href&quot;: &quot;http://scoring-dev.nbcsports.io/Stats/sports?Offset=0&amp;Limit=100&quot;,
+    &quot;ref&quot;: [
+        &quot;collection&quot;
+    ],
+    &quot;method&quot;: &quot;GET&quot;,
+    &quot;offset&quot;: 0,
+    &quot;limit&quot;: 100,
+    &quot;size&quot;: 20,
+    &quot;first&quot;: {
+        &quot;href&quot;: &quot;http://scoring-dev.nbcsports.io/Stats/sports?offset=0&amp;limit=100&quot;,
+        &quot;ref&quot;: [
+            &quot;collection&quot;
+        ],
+        &quot;method&quot;: &quot;GET&quot;
+    },
+    &quot;values&quot;: [],
+    &quot;self&quot;: {
+        &quot;href&quot;: &quot;http://scoring-dev.nbcsports.io/Stats/sports?Offset=0&amp;Limit=100&quot;,
+        &quot;ref&quot;: [
+            &quot;collection&quot;
+        ],
+        &quot;method&quot;: &quot;GET&quot;
+    }
+}
+</code></pre>
+<h1 id="last-update">Last Update</h1>
+<hr />
+<p>Most endpoints are equipped with the ability to return data based on a timestamp supplied via the query parameters of the request. Passing in this timestamp will return data that has been modified or created <strong><em>after</em></strong> the supplied time. </p>
+<p>Timestamps should be in milliseconds.</p>
+<p>The API offers an endpoint to collect last update timestamps for each league and endpoint combination. Regular polling of this endpoint reduces the need to regularly poll the wider set of endpoints. This allows clients to call specific endpoints, only when updates have actually been made to data that the client has not already ingested.</p>
+<p>Please see the <a href="#data-endpoints">Data Endpoints</a> section or the <a href="#static-table-endpoints">Static Table Endpoints</a> for corresponding endpoint usage instructions.</p>
+<p>Each endpoint will be appropriately marked as last update enabled in this documentation.</p>
+<h1 id="pagination">Pagination</h1>
+<hr />
+<p>Most endpoints are equipped with the ability to paginate response data. The <em><code>offset</code></em> and <em><code>limit</code></em> query parameters are used in requests to control the amount of data returned.</p>
+<ul>
+<li><em><code>Offset</code></em>: Specifies the number of records to skip before starting to return rows. For example, an offset of 10 will skip the first 10 records.</li>
+<li><em><code>Limit</code></em>: Specifies the maximum number of records to return. For instance, a limit of 5 will return at most 5 records.</li>
+</ul>
+<p>Together, they help in retrieving a specific subset of data. For example, if you have a total of 100 records and want to fetch records 11 to 20, you would use an offset of 10 and a limit of 10.
+This is useful in breaking up large, expensive requests, into smaller, more efficient requests and subsequent responses.</p>
+<p>Each endpoint will be appropriately marked as pagination enabled in this documentation.</p>
+<h1 id="data-endpoints">Data Endpoints</h1>
+<hr />
+<h4 id="get-last-updates"><strong><em>Get Last Updates</em></strong></h4>
+<p>This endpoint will return last update timestamps for each league / endpoint type. It is highly recommended to use some sort of combination of optional query parameters to maximize the efficiency of this endpoint. If no query parameters are present, then a response will be generated that contains last updates for every possible league / endpoint combination. This is not efficient!</p>
+<ul>
+<li>Path: <strong><em><code>/stats/lastupdate</code></em></strong></li>
+<li>Request Type: <code>GET</code></li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None, not recommended</li>
+</ul>
+</li>
+<li>Optional Query Parameters:<ul>
+<li><code>league</code><ul>
+<li>corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+<li><code>dataType</code><ul>
+<li>corresponds to the type of data returned by a given endpoint (i.e. Venue)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="get-sports"><strong><em>Get Sports</em></strong></h4>
+<p>This endpoint returns a list of sports, with nested leagues and any applicable season strucutre information.</p>
+<ul>
+<li>Path: <code>/stats/sports</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Optional Query Parameters:<ul>
+<li><code>sport</code><ul>
+<li>corresponds to any of the sports listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="get-leagues"><strong><em>Get Leagues</em></strong></h4>
+<p>This endpoint returns a list of leagues for a given season. It also defines the structure of the league for the given season (i.e. any relevant conferences/divisions).</p>
+<ul>
+<li>Path: <code>/stats/leagues</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Query Parameters:<ul>
+<li><code>league</code><ul>
+<li>corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-dictionary"><strong><em>Get Dictionary</em></strong></h3>
+<p>This endpoint returns a list of different dictionary / enum types that are referenced in some datasets or can be used as query parameters for endpoints. Such things can include different event types, event statuses, static table types, and more.</p>
+<ul>
+<li>Path: <code>/stats/dictionary</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Optional Query Parameters:    <ul>
+<li><code>league</code><ul>
+<li>corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-venues"><strong><em>Get Venues</em></strong></h3>
+<p>This endpoint returns a list of venues (stadiums / arenas).</p>
+<ul>
+<li>Path: <code>/stats/venues</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Optional Query Parameters:</li>
+<li>Optional Query Parameters<ul>
+<li><code>league</code><ul>
+<li>if not present, this will return teams for ALL leagues.</li>
+<li>NFL</li>
+<li>CFB</li>
+<li>NBA</li>
+<li>CBK</li>
+<li>WCBK</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>EPL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+<li><code>venueId</code><ul>
+<li>corresponds to the ID of a given venue.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-colleges"><strong><em>Get Colleges</em></strong></h3>
+<p>This endpoint returns a list of colleges and universities.</p>
+<ul>
+<li>Path: <code>/stats/colleges</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Optional Query Parameters:<ul>
+<li><code>collegeId</code><ul>
+<li>corresponds to the ID of a given college.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-teams"><strong><em>Get Teams</em></strong></h3>
+<p>This endpoint returns a list of teams for a given league. This endpoint is only applicable to leagues with teams and that we are licensed for with our data provider.</p>
+<ul>
+<li>Path: <code>/stats/teams</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Query Parameters<ul>
+<li><code>league</code><ul>
+<li>if not present, this will return teams for ALL leagues.</li>
+<li>NFL</li>
+<li>CFB</li>
+<li>NBA</li>
+<li>CBK</li>
+<li>WCBK</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>teamId</code><ul>
+<li>corresponds to the ID of a given team.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-players"><strong><em>Get Players</em></strong></h3>
+<p>This endpoint returns a list of players for a given league. This endpoint is only applicable to leagues that we are licensed for players with our data provider.</p>
+<ul>
+<li>Path: <code>/stats/players</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Query Parameters<ul>
+<li><code>league</code><ul>
+<li>if not present, this will return players for ALL leagues.</li>
+<li>NFL</li>
+<li>CFB</li>
+<li>NBA</li>
+<li>CBK</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>EPL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+<li><code>teamId</code><ul>
+<li>corresponds to the ID of a given team. Will give all players on this team. Not applicable to non-team sports.</li>
+</ul>
+</li>
+<li><code>playerId</code><ul>
+<li>corresponds to the ID of a given player.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-events"><strong><em>Get Events</em></strong></h3>
+<p>This endpoint returns a list of events (games or races) for a given league. This endpoint is only applicable to leagues that we are licensed for events with our data provider.</p>
+<ul>
+<li>Path: <code>/stats/events</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Query Parameters<ul>
+<li><code>league</code><ul>
+<li>if not present, this will return events for ALL leagues.</li>
+<li>NFL</li>
+<li>CFB</li>
+<li>NBA</li>
+<li>CBK</li>
+<li>WCBK</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>EPL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+<li><code>teamId</code><ul>
+<li>corresponds to the ID of a given team. Will give all events for this team. </li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>corresponds to the ID of a given event.</li>
+</ul>
+</li>
+<li><code>fullEvent</code><ul>
+<li>boolean value. Will default to false if not present. Passing true will provide ALL event information on file, while false will give a concise view of the event.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-daily-schedule"><strong><em>Get Daily Schedule</em></strong></h3>
+<p>This endpoint returns a list of events, grouped by day for a given league. This endpoint is only applicable to leagues that we are licensed for events with our data provider.</p>
+<ul>
+<li>Path: <code>/stats/schedules/league/daily</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>CFB</li>
+<li>NBA</li>
+<li>CBK</li>
+<li>WCBK</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>EPL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Query Parameters<ul>
+<li><code>startDate</code><ul>
+<li>dateTime that is the beginning of the date range you want to query for.</li>
+</ul>
+</li>
+<li><code>endDate</code><ul>
+<li>dateTime that is the end of the date range you want to query for.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>enum value that is used to filter by event type. These values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-weekly-schedule"><strong><em>Get Weekly Schedule</em></strong></h3>
+<p>This endpoint returns a list of events, grouped by week for a given league. This endpoint is only applicable to leagues that we are licensed for events with our data provider and that play their games in weekly manner.</p>
+<ul>
+<li>Path: <code>/stats/schedules/league/weekly</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+</ul>
+</li>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>CFB</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Query Parameters<ul>
+<li><code>seasonWeek</code><ul>
+<li>integer season week number to get events for. </li>
+</ul>
+</li>
+<li><code>startDate</code><ul>
+<li>dateTime that is the beginning of the date range you want to query for.</li>
+</ul>
+</li>
+<li><code>endDate</code><ul>
+<li>dateTime that is the end of the date range you want to query for.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>enum value that is used to filter by event type. These values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-ap-articles"><strong><em>Get AP Articles</em></strong></h3>
+<p>This endpoint returns a list of AP Articles for leagues we are licensed to receive AP articles for.</p>
+<ul>
+<li>Path: <code>/stats/articles</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None</li>
+</ul>
+</li>
+<li>Optional Query Parameters:<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+<li>PGA</li>
+<li>LPGA</li>
+<li>HRAC</li>
+<li>ATP</li>
+<li>WTA</li>
+<li>TDF</li>
+</ul>
+</li>
+<li><code>storyId</code><ul>
+<li>corresponds to the ID of an individual AP article.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="live-scoring-endpoints">Live Scoring Endpoints</h1>
+<hr />
+<h1 id="static-table-endpoints">Static Table Endpoints</h1>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
