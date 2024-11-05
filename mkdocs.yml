@@ -1,0 +1,10 @@
+site_name: NBCSports-StatsAPI
+nav:
+  - Home: index.md
+  - V1: v1.md
+
+theme:
+  name: mkdocs
+  color_mode: dark
+  user_color_mode_toggle: true
+  nav_style: dark
