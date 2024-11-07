@@ -145,6 +145,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#betting-endpoints" class="nav-link">Betting Endpoints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
@@ -226,8 +231,49 @@
 <li><a href="#get-ap-articles">Get AP Articles</a></li>
 </ul>
 </li>
-<li><em>Live Scoring Endpoints</em></li>
-<li><em>Static Table Endpoints</em></li>
+<li><em>Live Scoring Endpoints</em><ul>
+<li><a href="#get-ticker">Get Ticker</a></li>
+<li><a href="#get-boxscore-tables">Get Boxscore Tables</a></li>
+<li><a href="#get-linescore-tables">Get Linescore Tables</a></li>
+<li><a href="#get-matchup-tables">Get Matchup Tables</a></li>
+<li><a href="#get-play-by-play">Get Play By Play</a></li>
+<li><a href="#get-scoring-plays">Get Scoring Plays</a></li>
+<li><a href="#get-live-soccer-lineup">Get Live Soccer Lineup</a></li>
+</ul>
+</li>
+<li><em>Static Table Endpoints</em><ul>
+<li><a href="#get-static-table-last-updates">Get Static Table Last Updates</a></li>
+<li><a href="#get-roster-tables">Get Roster Tables</a></li>
+<li><a href="#get-player-season-stats-tables">Get Player Season Stats Tables</a></li>
+<li><a href="#get-player-season-stats-per-game-tables">Get Player Season Stats Per Game Tables</a></li>
+<li><a href="#get-player-game-log-tables">Get Player Game Log Tables</a></li>
+<li><a href="#get-player-overview-tables">Get Player Overview Tables</a></li>
+<li><a href="#get-player-career-stats-tables">Get Player Career Stats Tables</a></li>
+<li><a href="#get-player-career-per-game-stats-tables">Get Player Career Per Game Stats Tables</a></li>
+<li><a href="#get-team-season-stats-tables">Get Team Season Stats Tables</a></li>
+<li><a href="#get-team-season-per-game-stats-tables">Get Team Season Per Game Stats Tables</a></li>
+<li><a href="#get-team-overview-tables">Get Team Overview Tables</a></li>
+<li><a href="#get-full-conference-standings-tables">Get Full Conference Standings Tables</a></li>
+<li><a href="#get-conference-standings-overview-tables">Get Conference Standings Overview Tables</a></li>
+<li><a href="#get-conference-wild-card-standings-tables">Get Conference Wild Card Standings Tables</a></li>
+<li><a href="#get-full-division-standings-tables">Get Full Division Standings Tables</a></li>
+<li><a href="#get-full-league-standings-tables">Get Full League Standings Tables</a></li>
+<li><a href="#get-league-standings-overview-tables">Get League Standings Overview Tables</a></li>
+<li><a href="#get-full-league-schedule-tables">Get Full League Schedule Tables</a></li>
+<li><a href="#get-weekly-league-schedule-tables">Get Weekly League Schedule Tables</a></li>
+<li><a href="#get-daily-league-schedule-tables">Get Daily League Schedule Tables</a></li>
+<li><a href="#get-team-schedule-tables">Get Team Schedule Tables</a></li>
+<li><a href="#get-full-league-leaders-tables">Get Full League Leaders Tables</a></li>
+<li><a href="#get-top-league-leaders-tables">Get Top League Leaders Tables</a></li>
+<li><a href="#get-poll-ranking-tables">Get Poll Ranking Tables</a></li>
+<li><a href="#get-event-results-tables">Get Event Results Tables</a></li>
+<li><a href="#get-daily-injury-tables">Get Daily Injury Tables</a></li>
+</ul>
+</li>
+<li><em>Betting Endpoints</em><ul>
+<li><a href="#get-betting-markets">Get Betting Markets</a></li>
+</ul>
+</li>
 </ul>
 <h1 id="response-wrapper">Response Wrapper</h1>
 <hr />
@@ -285,20 +331,20 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Request Type: <code>GET</code></li>
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
-<li>None, not recommended</li>
+<li>None, not recommended.</li>
 </ul>
 </li>
 <li>Optional Query Parameters:<ul>
 <li><code>league</code><ul>
-<li>corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+<li>Corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
 </ul>
 </li>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
 </ul>
 </li>
 <li><code>dataType</code><ul>
-<li>corresponds to the type of data returned by a given endpoint (i.e. Venue)</li>
+<li>Corresponds to the type of data returned by a given endpoint (i.e. Venue).</li>
 </ul>
 </li>
 </ul>
@@ -317,7 +363,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </li>
 <li>Optional Query Parameters:<ul>
 <li><code>sport</code><ul>
-<li>corresponds to any of the sports listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+<li>Corresponds to any of the sports listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
 </ul>
 </li>
 </ul>
@@ -332,14 +378,14 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Optional Query Parameters:<ul>
 <li><code>league</code><ul>
-<li>corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+<li>Corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
 </ul>
 </li>
 </ul>
@@ -357,7 +403,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </li>
 <li>Optional Query Parameters:    <ul>
 <li><code>league</code><ul>
-<li>corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+<li>Corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
 </ul>
 </li>
 </ul>
@@ -374,10 +420,9 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>None</li>
 </ul>
 </li>
-<li>Optional Query Parameters:</li>
 <li>Optional Query Parameters<ul>
 <li><code>league</code><ul>
-<li>if not present, this will return teams for ALL leagues.</li>
+<li>If not present, this will return teams for ALL leagues.</li>
 <li>NFL</li>
 <li>CFB</li>
 <li>NBA</li>
@@ -392,7 +437,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </ul>
 </li>
 <li><code>venueId</code><ul>
-<li>corresponds to the ID of a given venue.</li>
+<li>Corresponds to the ID of a given venue.</li>
 </ul>
 </li>
 </ul>
@@ -411,7 +456,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </li>
 <li>Optional Query Parameters:<ul>
 <li><code>collegeId</code><ul>
-<li>corresponds to the ID of a given college.</li>
+<li>Corresponds to the ID of a given college.</li>
 </ul>
 </li>
 </ul>
@@ -426,14 +471,14 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Optional Query Parameters<ul>
 <li><code>league</code><ul>
-<li>if not present, this will return teams for ALL leagues.</li>
+<li>If not present, this will return teams for ALL leagues.</li>
 <li>NFL</li>
 <li>CFB</li>
 <li>NBA</li>
@@ -445,7 +490,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </ul>
 </li>
 <li><code>teamId</code><ul>
-<li>corresponds to the ID of a given team.</li>
+<li>Corresponds to the ID of a given team.</li>
 </ul>
 </li>
 </ul>
@@ -460,14 +505,14 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Optional Query Parameters<ul>
 <li><code>league</code><ul>
-<li>if not present, this will return players for ALL leagues.</li>
+<li>If not present, this will return players for ALL leagues.</li>
 <li>NFL</li>
 <li>CFB</li>
 <li>NBA</li>
@@ -481,11 +526,11 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </ul>
 </li>
 <li><code>teamId</code><ul>
-<li>corresponds to the ID of a given team. Will give all players on this team. Not applicable to non-team sports.</li>
+<li>Corresponds to the ID of a given team. Will give all players on this team. Not applicable to non-team sports.</li>
 </ul>
 </li>
 <li><code>playerId</code><ul>
-<li>corresponds to the ID of a given player.</li>
+<li>Corresponds to the ID of a given player.</li>
 </ul>
 </li>
 </ul>
@@ -500,7 +545,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
 </ul>
 </li>
 </ul>
@@ -522,15 +567,15 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </ul>
 </li>
 <li><code>teamId</code><ul>
-<li>corresponds to the ID of a given team. Will give all events for this team. </li>
+<li>Corresponds to the ID of a given team. Will give all events for this team. </li>
 </ul>
 </li>
 <li><code>eventId</code><ul>
-<li>corresponds to the ID of a given event.</li>
+<li>Corresponds to the ID of a given event.</li>
 </ul>
 </li>
 <li><code>fullEvent</code><ul>
-<li>boolean value. Will default to false if not present. Passing true will provide ALL event information on file, while false will give a concise view of the event.</li>
+<li>Boolean value that will default to false if not present. Passing true will provide ALL event information on file, while false will give a concise view of the event.</li>
 </ul>
 </li>
 </ul>
@@ -545,7 +590,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
 </ul>
 </li>
 <li><code>league</code><ul>
@@ -566,15 +611,15 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </li>
 <li>Optional Query Parameters<ul>
 <li><code>startDate</code><ul>
-<li>dateTime that is the beginning of the date range you want to query for.</li>
+<li>DateTime that is the beginning of the date range you want to query for.</li>
 </ul>
 </li>
 <li><code>endDate</code><ul>
-<li>dateTime that is the end of the date range you want to query for.</li>
+<li>DateTime that is the end of the date range you want to query for.</li>
 </ul>
 </li>
 <li><code>eventType</code><ul>
-<li>enum value that is used to filter by event type. These values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+<li>Enum value that is used to filter by event type. These values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
 </ul>
 </li>
 </ul>
@@ -589,7 +634,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
 <li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024)</li>
 </ul>
 </li>
 <li><code>league</code><ul>
@@ -604,19 +649,19 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </li>
 <li>Optional Query Parameters<ul>
 <li><code>seasonWeek</code><ul>
-<li>integer season week number to get events for. </li>
+<li>Integer season week number to get events for. </li>
 </ul>
 </li>
 <li><code>startDate</code><ul>
-<li>dateTime that is the beginning of the date range you want to query for.</li>
+<li>DateTime that is the beginning of the date range you want to query for.</li>
 </ul>
 </li>
 <li><code>endDate</code><ul>
-<li>dateTime that is the end of the date range you want to query for.</li>
+<li>DateTime that is the end of the date range you want to query for.</li>
 </ul>
 </li>
 <li><code>eventType</code><ul>
-<li>enum value that is used to filter by event type. These values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+<li>Enum value that is used to filter by event type. These values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
 </ul>
 </li>
 </ul>
@@ -651,7 +696,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </ul>
 </li>
 <li><code>storyId</code><ul>
-<li>corresponds to the ID of an individual AP article.</li>
+<li>Corresponds to the ID of an individual AP article.</li>
 </ul>
 </li>
 </ul>
@@ -659,8 +704,1204 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 </ul>
 <h1 id="live-scoring-endpoints">Live Scoring Endpoints</h1>
 <hr />
+<h3 id="note"><strong><em>NOTE</em></strong></h3>
+<p>Linescore, boxscore, and play-by-play data jobs are queued up every 30 seconds. Once each of these jobs executes, data is pulled from our stats provider and updates are made to our database. The updates are then exposed at that point.
+These endpoints do not provide a true real-time update of live data. There will be a minimum delay of 30 seconds. The latency time is also variable depending on how fast the stats provider makes updates.  </p>
+<h3 id="get-ticker"><strong><em>Get Ticker</em></strong></h3>
+<p>This endpoint will return a snapshot of a game in it's current live state. This endpoint is used to power the NBCSports.com ticker feed.</p>
+<ul>
+<li>Path: <code>/stats/scores/ticker</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update <strong><em>Not</em></strong> Enabled</li>
+<li>Pagination <strong><em>Not</em></strong> Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>WCBK</li>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-boxscore-tables"><strong><em>Get Boxscore Tables</em></strong></h3>
+<p>This endpoint will return boxscore tables for a given live event. The player column in each table will contain a reference to the player's ID number. Replacement is expected to happen on the client's end, after player feed ingestion.
+For MLB, a superscript will be provided in the player cell in addition to the player ID. This superscript contains the player's position.</p>
+<ul>
+<li>Path: <code>/stats/scores/boxscore/tables</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired boxscore table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. If the parameter is not used, all boxscore table types will be returned. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-linescore-tables"><strong><em>Get Linescore Tables</em></strong></h3>
+<p>This endpoint will return linescore tables for a given live event. The team column in each table will contain a reference to the team's ID number. Replacement is expected to happen on the client's end, after team feed ingestion.</p>
+<ul>
+<li>Path: <code>/stats/scores/linescore/tables</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired linescore table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. If the parameter is not used, all linescore table types will be returned. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-matchup-tables"><strong><em>Get Matchup Tables</em></strong></h3>
+<p>This endpoint will return pre-game or live matchup tables for a given event. A matchup table with pre-game information will automatically convert to using live stats when a game goes live. The team column in each table will contain a reference to the team's ID number. Replacement is expected to happen on the client's end, after team feed ingestion.</p>
+<ul>
+<li>Path: <code>/stats/scores/linescore/tables</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired matchup table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. If the parameter is not used, all matchup table types will be returned. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-play-by-play"><strong><em>Get Play by Play</em></strong></h3>
+<p>This endpoint will return play by play for a given event.</p>
+<ul>
+<li>Path: <code>/stats/scores/pbp</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-scoring-plays"><strong><em>Get Scoring Plays</em></strong></h3>
+<p>This endpoint will return a version of the play by play feed that only contains the scoring plays for a given event.</p>
+<ul>
+<li>Path: <code>/stats/scores/pbp/scoring</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-live-soccer-lineup"><strong><em>Get Live Soccer Lineup</em></strong></h3>
+<p>This endpoint will return a live and dynamic lineup of players in a given soccer game.</p>
+<ul>
+<li>Path: <code>/stats/scores/soccer/lineup</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update <strong><em>Not</em></strong> Enabled</li>
+<li>Pagination <strong><em>Not</em></strong> Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>EPL</li>
+</ul>
+</li>
+<li><code>eventId</code><ul>
+<li>Corresponds to the ID of the desired event. These can be chained in the query parameters to get tickers for multiple events at once.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="static-table-endpoints">Static Table Endpoints</h1>
-<hr /></div>
+<hr />
+<h3 id="note_1"><strong><em>NOTE</em></strong></h3>
+<p>All columns that contain ingestible data types from other endpoints will only contain an ID reference to the given data type. For example, the player column of a roster table will have a cell value of "{{playerId:1234}}". Replacemnt of that value would be on clients to perform, after they have ingested the required data type. The table metadata will also contain a list of all the required column replacements for the given table.</p>
+<h3 id="get-static-table-last-updates"><strong><em>Get Static Table Last Updates</em></strong></h3>
+<p>This endpoint will return last update timestamps for each league / static table endpoint type. It is highly recommended to use some sort of combination of optional query parameters to maximize the efficiency of this endpoint. If no query parameters are present, then a response will be generated that contains last updates for every possible league / static table endpoint combination. This is not efficient!</p>
+<ul>
+<li>Path: <strong><em><code>/stats/tables/lastupdate</code></em></strong></li>
+<li>Request Type: <code>GET</code></li>
+<li>Pagination Enabled</li>
+<li>Required Query Parameters:<ul>
+<li>None, not recommended.</li>
+</ul>
+</li>
+<li>Optional Query Parameters:<ul>
+<li><code>league</code><ul>
+<li>Corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. If the parameter is not used, all table types will be returned. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-roster-tables"><strong><em>Get Roster Tables</em></strong></h3>
+<p>This endpoint will return static roster tables for teams.</p>
+<ul>
+<li>Path: <code>/stats/tables/roster</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>teamId</code><ul>
+<li>Corresponds to the team ID for a desired team. Team IDs can be chained in the query parameters to get tables for multiple teams. All available teams will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-player-season-stats-tables"><strong><em>Get Player Season Stats Tables</em></strong></h3>
+<p>This endpoint will return static season player stats tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/playerStats/season</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>playerId</code><ul>
+<li>Corresponds to the player ID for a desired player. Player IDs can be chained in the query parameters to get tables for multiple players. All available players will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-player-season-stats-per-game-tables"><strong><em>Get Player Season Stats Per Game Tables</em></strong></h3>
+<p>This endpoint will return static season player stats per game tables. These tables are only applicable to basketball leagues.</p>
+<ul>
+<li>Path: <code>/stats/tables/playerStats/season/perGame</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NBA</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>playerId</code><ul>
+<li>Corresponds to the player ID for a desired player. Player IDs can be chained in the query parameters to get tables for multiple players. All available players will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-player-game-log-tables"><strong><em>Get Player Game Log Tables</em></strong></h3>
+<p>This endpoint will return static player game log tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/playerStats/gameLog</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>playerId</code><ul>
+<li>Corresponds to the player ID for a desired player. Player IDs can be chained in the query parameters to get tables for multiple players. All available players will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-player-overview-tables"><strong><em>Get Player Overview Tables</em></strong></h3>
+<p>This endpoint will return static player overview tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/playerStats/overview</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>playerId</code><ul>
+<li>Corresponds to the player ID for a desired player. Player IDs can be chained in the query parameters to get tables for multiple players. All available players will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-player-career-stats-tables"><strong><em>Get Player Career Stats Tables</em></strong></h3>
+<p>This endpoint will return static player career stats tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/playerStats/career</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>playerId</code><ul>
+<li>Corresponds to the player ID for a desired player. Player IDs can be chained in the query parameters to get tables for multiple players. All available players will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-player-career-per-game-stats-tables"><strong><em>Get Player Career Per Game Stats Tables</em></strong></h3>
+<p>This endpoint will return static player career per game stats tables. These tables are only applicable to basketball leagues.</p>
+<ul>
+<li>Path: <code>/stats/tables/playerStats/career/perGame</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NBA</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>playerId</code><ul>
+<li>Corresponds to the player ID for a desired player. Player IDs can be chained in the query parameters to get tables for multiple players. All available players will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-team-season-stats-tables"><strong><em>Get Team Season Stats Tables</em></strong></h3>
+<p>This endpoint will return static team season stats tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/teamStats/season</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>teamId</code><ul>
+<li>Corresponds to the team ID for a desired team. Team IDs can be chained in the query parameters to get tables for multiple teams. All available teams will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-team-season-per-game-stats-tables"><strong><em>Get Team Season Per Game Stats Tables</em></strong></h3>
+<p>This endpoint will return static team season per game stats tables. These tables are only applicable to basketball leagues.</p>
+<ul>
+<li>Path: <code>/stats/tables/teamStats/season/perGame</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NBA</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>teamId</code><ul>
+<li>Corresponds to the team ID for a desired team. Team IDs can be chained in the query parameters to get tables for multiple teams. All available teams will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-team-overview-tables"><strong><em>Get Team Overview Tables</em></strong></h3>
+<p>This endpoint will return static team overview tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/teamStats/overview</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>teamId</code><ul>
+<li>Corresponds to the team ID for a desired team. Team IDs can be chained in the query parameters to get tables for multiple teams. All available teams will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-full-conference-standings-tables"><strong><em>Get Full Conference Standings Tables</em></strong></h3>
+<p>This endpoint will return static full conference standings tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/standings/conference/full</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>conferenceId</code><ul>
+<li>Corresponds to the conference ID for a desired conference. Conference IDs can be chained in the query parameters to get tables for multiple conferences. All available conferences will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>collegeSubDivisionId</code><ul>
+<li>Corresponds to the college sub division ID for a desired sub division. College Sub Division IDs can be chained in the query parameters to get tables for multiple sub divisions. All available sub divisions will be returned if the ID is not supplied.</li>
+<li>Only applicable for college sports.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-conference-standings-overview-tables"><strong><em>Get Conference Standings Overview Tables</em></strong></h3>
+<p>This endpoint will return static full conference standings tables. These are simplified view of the full standings.</p>
+<ul>
+<li>Path: <code>/stats/tables/standings/conference/overview</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>conferenceId</code><ul>
+<li>Corresponds to the conference ID for a desired conference. Conference IDs can be chained in the query parameters to get tables for multiple conferences. All available conferences will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>collegeSubDivisionId</code><ul>
+<li>Corresponds to the college sub division ID for a desired sub division. College Sub Division IDs can be chained in the query parameters to get tables for multiple sub divisions. All available sub divisions will be returned if the ID is not supplied.</li>
+<li>Only applicable for college sports.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-conference-wild-card-standings-tables"><strong><em>Get Conference Wild Card Standings Tables</em></strong></h3>
+<p>This endpoint will return static conference wild card standings tables. These are for the MLB wild card race.</p>
+<ul>
+<li>Path: <code>/stats/tables/standings/conference/wildCard</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>MLB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>conferenceId</code><ul>
+<li>Corresponds to the conference ID for a desired conference. Conference IDs can be chained in the query parameters to get tables for multiple conferences. All available conferences will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-full-division-standings-tables"><strong><em>Get Full Division Standings Tables</em></strong></h3>
+<p>This endpoint will return static full division standings tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/standings/division/full</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>conferenceId</code><ul>
+<li>Corresponds to the conference ID for a desired conference. Conference IDs can be chained in the query parameters to get tables for multiple conferences. All available conferences will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>collegeSubDivisionId</code><ul>
+<li>Corresponds to the college sub division ID for a desired sub division. College Sub Division IDs can be chained in the query parameters to get tables for multiple sub divisions. All available sub divisions will be returned if the ID is not supplied.</li>
+<li>Only applicable for college sports.</li>
+</ul>
+</li>
+<li><code>divisionId</code><ul>
+<li>Corresponds to the division ID for a desired division. Division IDs can be chained in the query parameters to get tables for multiple divisions. All available divisions will be returned if the ID is not supplied.</li>
+<li>Must be used in conjunction with the <code>conferenceId</code> parameter.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-full-league-standings-tables"><strong><em>Get Full League Standings Tables</em></strong></h3>
+<p>This endpoint will return static full league standings tables. This is used for EPL, since there are no conferences or divisions.</p>
+<ul>
+<li>Path: <code>/stats/tables/standings/league/full</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>EPL</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-league-standings-overview-tables"><strong><em>Get League Standings Overview Tables</em></strong></h3>
+<p>This endpoint will return static league standings overview tables. This is used for EPL, since there are no conferences or divisions. This is a simplified view of the full league standings.</p>
+<ul>
+<li>Path: <code>/stats/tables/standings/league/overview</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-full-league-schedule-tables"><strong><em>Get Full League Schedule Tables</em></strong></h3>
+<p>This endpoint will return static league schedule tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/schedules/league/full</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-weekly-league-schedule-tables"><strong><em>Get Weekly League Schedule Tables</em></strong></h3>
+<p>This endpoint will return static weekly league schedule tables. Applies only to sports that operate on a weekly basis.</p>
+<ul>
+<li>Path: <code>/stats/tables/schedules/league/weekly</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>CFB</li>
+<li>Nascar</li>
+<li>Truck</li>
+<li>Xfinity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>seasonWeek</code><ul>
+<li>Corresponds to the season week number.</li>
+</ul>
+</li>
+<li><code>startDate</code><ul>
+<li>DateTime field that is used in querying for tables by their schedule range start date (i.e. the start date of a range of weeks you are targeting).</li>
+<li>This field can be found on the table metadata.</li>
+</ul>
+</li>
+<li><code>endDate</code><ul>
+<li>DateTime field that is used in querying for tables by their schedule range end date (i.e. the end date of a range of weeks you are targeting).</li>
+<li>This field can be found on the table metadata.</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-daily-league-schedule-tables"><strong><em>Get Daily League Schedule Tables</em></strong></h3>
+<p>This endpoint will return static daily league schedule tables. Applies only to sports that operate on a daily basis.</p>
+<ul>
+<li>Path: <code>/stats/tables/schedules/league/daily</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>EPL</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>date</code><ul>
+<li>DateTime field that is used in querying for tables by their scheduled start date.</li>
+<li>This field can be found on the table metadata.</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-team-schedule-tables"><strong><em>Get Team Schedule Tables</em></strong></h3>
+<p>This endpoint will return static team schedule tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/schedules/team</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>teamId</code><ul>
+<li>Corresponds to the team ID for a desired team. Team IDs can be chained in the query parameters to get tables for multiple teams. All available teams will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-full-league-leaders-tables"><strong><em>Get Full League Leaders Tables</em></strong></h3>
+<p>This endpoint will return static full league leaders tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/leaders/full</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-top-league-leaders-tables"><strong><em>Get Top League Leaders Tables</em></strong></h3>
+<p>This endpoint will return static top league leaders tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/leaders/top</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+<li>CFB</li>
+<li>CBK</li>
+<li>EPL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+<li><code>eventType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired event type. These can be chained together in the query parameters to retrieve multiple desired event types. These event type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-poll-ranking-tables"><strong><em>Get Poll Ranking Tables</em></strong></h3>
+<p>This endpoint will return static poll ranking tables. This only applies to college sports.</p>
+<ul>
+<li>Path: <code>/stats/tables/polls</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>CFB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-event-results-tables"><strong><em>Get Event Results Tables</em></strong></h3>
+<p>This endpoint will return static event results tables. This only applies to motor sports.</p>
+<ul>
+<li>Path: <code>/stats/tables/results</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>Nascar</li>
+<li>Xfinity</li>
+<li>Truck</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>eventId</code><ul>
+<li>Corresponds to the event ID for a desired event. Event IDs can be chained in the query parameters to get tables for multiple events. All available events will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-daily-injury-tables"><strong><em>Get Daily Injury Tables</em></strong></h3>
+<p>This endpoint will return static daily injury tables.</p>
+<ul>
+<li>Path: <code>/stats/tables/injuries/daily</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>MLB</li>
+<li>NHL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>teamId</code><ul>
+<li>Corresponds to the team ID for a desired team. Team IDs can be chained in the query parameters to get tables for multiple teams. All available teams will be returned if the ID is not supplied.</li>
+</ul>
+</li>
+<li><code>date</code><ul>
+<li>DateTime field that is used in querying for tables by their date.</li>
+<li>This field can be found on the table metadata.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+<li><code>tableType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="betting-endpoints">Betting Endpoints</h1>
+<hr />
+<h3 id="note_2"><strong><em>NOTE</em></strong></h3>
+<p>The current betting provider is BetMGM. All betting data is from BetMGM and odds are refreshed until an event's listed start datetime. This endpoint <strong><em>will not return live odds.</em></strong> The application currently only supports three types of event-level betting markets: Spread, Point Totals, and Moneyline. There are no props or futures at this point.</p>
+<h3 id="get-betting-markets"><strong><em>Get Betting Markets</em></strong></h3>
+<p>This endpoint will return pre-game betting markets.</p>
+<ul>
+<li>Path: <code>/stats/betting/markets</code></li>
+<li>Request Type: <code>GET</code></li>
+<li>Last Update Enabled</li>
+<li>Pagination Enabled</li>
+<li>Required Parameters<ul>
+<li><code>league</code><ul>
+<li>NFL</li>
+<li>NBA</li>
+<li>NHL</li>
+<li>MLB</li>
+<li>EPL</li>
+<li>CFB</li>
+<li>CBK</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optional Parameters<ul>
+<li><code>fixtureType</code><ul>
+<li>Enum value (ID or string name accepted) that corresponds to the desired fixture type. These fixture type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
+<li>Currently event is the only fixture type supported. New fixture types for prop bets and futures may potentially be added in the future.</li>
+</ul>
+</li>
+<li><code>id</code><ul>
+<li>Corresponds to the id of the given fixture. For example, if a fixture of "Event" is supplied, the <code>id</code> expected would be an <code>eventId</code>. IDs can be chained together in the query parameters, but all must be of the same fixture type.</li>
+<li>Must be used in conjuction with the <code>fixtureType</code> parameter.</li>
+</ul>
+</li>
+<li><code>seasonId</code> OR <code>seasonYear</code><ul>
+<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div>
             </div>
         </div>
 
