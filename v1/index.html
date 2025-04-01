@@ -106,27 +106,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#getting-started-with-v1" class="nav-link">Getting Started with V1</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#quick-links" class="nav-link">Quick Links</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#response-wrapper" class="nav-link">Response Wrapper</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#last-update" class="nav-link">Last Update</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#pagination" class="nav-link">Pagination</a>
+            <li class="nav-item" data-bs-level="1"><a href="#v1-endpoints" class="nav-link">V1 Endpoints</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -155,69 +135,10 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="getting-started-with-v1">Getting Started with V1</h1>
-<hr />
-<h5 id="base-endpoint-urls">Base Endpoint URLs:</h5>
-<ul>
-<li>DEV: <code>https://scoring-dev.nbcsports.io/v1</code></li>
-<li>PROD: <code>https://scoring.nbcsports.io/v1</code></li>
-</ul>
-<h4 id="leagues">Leagues:</h4>
-<p>Below is a list of sports and league abbreviations that are supported by the API.</p>
-<ul>
-<li>Football<ul>
-<li>NFL (National Football League)</li>
-<li>CFB (College Football - FBS Only)</li>
-</ul>
-</li>
-<li>Basketball<ul>
-<li>NBA (National Basketball Association)</li>
-<li>CBK (Men's College Basketball - Division 1 Only)</li>
-<li>WCBK (Women's College Baskettball - Division 1 Only)</li>
-</ul>
-</li>
-<li>Baseball<ul>
-<li>MLB (Major League Baseball)</li>
-</ul>
-</li>
-<li>Hockey<ul>
-<li>NHL (National Hockey League)</li>
-</ul>
-</li>
-<li>Soccer<ul>
-<li>EPL (Premier League)</li>
-</ul>
-</li>
-<li>Motor<ul>
-<li>NASCAR (National Association for Stock Car Auto Racing)</li>
-<li>Truck (NASCAR Craftsman Truck Series)</li>
-<li>Xfinity (NASCAR Xfinity Series)</li>
-</ul>
-</li>
-<li>Golf<ul>
-<li>PGA (Professional Golfers' Association of America)</li>
-<li>LPGA (Ladies Professional Golf Association)</li>
-</ul>
-</li>
-<li>Horse Racing<ul>
-<li>HRAC (Horse Racing)</li>
-</ul>
-</li>
-<li>Tennis<ul>
-<li>ATP (Association of Tennis Professionals)</li>
-<li>WTA (Womens Tennis Association)</li>
-</ul>
-</li>
-<li>Cycling<ul>
-<li>TDF (Tour de France)</li>
-</ul>
-</li>
-</ul>
-<h1 id="quick-links">Quick Links</h1>
+<h1 id="v1-endpoints">V1 Endpoints</h1>
 <hr />
 <ul>
 <li><em>Data Endpoints</em><ul>
-<li><a href="#get-last-updates">Get Last Updates</a></li>
 <li><a href="#get-sports">Get Sports</a></li>
 <li><a href="#get-leagues">Get Leagues</a></li>
 <li><a href="#get-dictionary">Get Dictionary</a></li>
@@ -242,7 +163,6 @@
 </ul>
 </li>
 <li><em>Static Table Endpoints</em><ul>
-<li><a href="#get-static-table-last-updates">Get Static Table Last Updates</a></li>
 <li><a href="#get-roster-tables">Get Roster Tables</a></li>
 <li><a href="#get-player-season-stats-tables">Get Player Season Stats Tables</a></li>
 <li><a href="#get-player-season-stats-per-game-tables">Get Player Season Stats Per Game Tables</a></li>
@@ -275,85 +195,12 @@
 </ul>
 </li>
 </ul>
-<h1 id="response-wrapper">Response Wrapper</h1>
-<hr />
-<p>Each response has a wrapper around the core data of the endpoint. This wrapper is useful for pagination and iterating through large datasets.
-Below is a sample response wrapper:</p>
-<pre><code>{
-    &quot;href&quot;: &quot;http://scoring-dev.nbcsports.io/Stats/sports?Offset=0&amp;Limit=100&quot;,
-    &quot;ref&quot;: [
-        &quot;collection&quot;
-    ],
-    &quot;method&quot;: &quot;GET&quot;,
-    &quot;offset&quot;: 0,
-    &quot;limit&quot;: 100,
-    &quot;size&quot;: 20,
-    &quot;first&quot;: {
-        &quot;href&quot;: &quot;http://scoring-dev.nbcsports.io/Stats/sports?offset=0&amp;limit=100&quot;,
-        &quot;ref&quot;: [
-            &quot;collection&quot;
-        ],
-        &quot;method&quot;: &quot;GET&quot;
-    },
-    &quot;values&quot;: [],
-    &quot;self&quot;: {
-        &quot;href&quot;: &quot;http://scoring-dev.nbcsports.io/Stats/sports?Offset=0&amp;Limit=100&quot;,
-        &quot;ref&quot;: [
-            &quot;collection&quot;
-        ],
-        &quot;method&quot;: &quot;GET&quot;
-    }
-}
-</code></pre>
-<h1 id="last-update">Last Update</h1>
-<hr />
-<p>Most endpoints are equipped with the ability to return data based on a timestamp supplied via the query parameters of the request. Passing in this timestamp will return data that has been modified or created <strong><em>after</em></strong> the supplied time. </p>
-<p>Timestamps should be in milliseconds.</p>
-<p>The API offers an endpoint to collect last update timestamps for each league and endpoint combination. Regular polling of this endpoint reduces the need to regularly poll the wider set of endpoints. This allows clients to call specific endpoints, only when updates have actually been made to data that the client has not already ingested.</p>
-<p>Please see the <a href="#data-endpoints">Data Endpoints</a> section or the <a href="#static-table-endpoints">Static Table Endpoints</a> for corresponding endpoint usage instructions.</p>
-<p>Each endpoint will be appropriately marked as last update enabled in this documentation.</p>
-<h1 id="pagination">Pagination</h1>
-<hr />
-<p>Most endpoints are equipped with the ability to paginate response data. The <em><code>offset</code></em> and <em><code>limit</code></em> query parameters are used in requests to control the amount of data returned.</p>
-<ul>
-<li><em><code>Offset</code></em>: Specifies the number of records to skip before starting to return rows. For example, an offset of 10 will skip the first 10 records.</li>
-<li><em><code>Limit</code></em>: Specifies the maximum number of records to return. For instance, a limit of 5 will return at most 5 records.</li>
-</ul>
-<p>Together, they help in retrieving a specific subset of data. For example, if you have a total of 100 records and want to fetch records 11 to 20, you would use an offset of 10 and a limit of 10.
-This is useful in breaking up large, expensive requests, into smaller, more efficient requests and subsequent responses.</p>
-<p>Each endpoint will be appropriately marked as pagination enabled in this documentation.</p>
 <h1 id="data-endpoints">Data Endpoints</h1>
 <hr />
-<h4 id="get-last-updates"><strong><em>Get Last Updates</em></strong></h4>
-<p>This endpoint will return last update timestamps for each league / endpoint type. It is highly recommended to use some sort of combination of optional query parameters to maximize the efficiency of this endpoint. If no query parameters are present, then a response will be generated that contains last updates for every possible league / endpoint combination. This is not efficient!</p>
-<ul>
-<li>Path: <strong><em><code>/stats/lastupdate</code></em></strong></li>
-<li>Request Type: <code>GET</code></li>
-<li>Pagination Enabled</li>
-<li>Required Query Parameters:<ul>
-<li>None, not recommended.</li>
-</ul>
-</li>
-<li>Optional Query Parameters:<ul>
-<li><code>league</code><ul>
-<li>Corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
-</ul>
-</li>
-<li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
-</ul>
-</li>
-<li><code>dataType</code><ul>
-<li>Corresponds to the type of data returned by a given endpoint (i.e. Venue).</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 <h4 id="get-sports"><strong><em>Get Sports</em></strong></h4>
 <p>This endpoint returns a list of sports, with nested leagues and any applicable season strucutre information.</p>
 <ul>
-<li>Path: <code>/stats/sports</code></li>
+<li>Path: <code>/v1/stats/sports</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -372,7 +219,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h4 id="get-leagues"><strong><em>Get Leagues</em></strong></h4>
 <p>This endpoint returns a list of leagues for a given season. It also defines the structure of the league for the given season (i.e. any relevant conferences/divisions).</p>
 <ul>
-<li>Path: <code>/stats/leagues</code></li>
+<li>Path: <code>/v1/stats/leagues</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -394,7 +241,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-dictionary"><strong><em>Get Dictionary</em></strong></h3>
 <p>This endpoint returns a list of different dictionary / enum types that are referenced in some datasets or can be used as query parameters for endpoints. Such things can include different event types, event statuses, static table types, and more.</p>
 <ul>
-<li>Path: <code>/stats/dictionary</code></li>
+<li>Path: <code>/v1/stats/dictionary</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Pagination Enabled</li>
 <li>Required Query Parameters:<ul>
@@ -412,7 +259,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-venues"><strong><em>Get Venues</em></strong></h3>
 <p>This endpoint returns a list of venues (stadiums / arenas).</p>
 <ul>
-<li>Path: <code>/stats/venues</code></li>
+<li>Path: <code>/v1/stats/venues</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -446,7 +293,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-colleges"><strong><em>Get Colleges</em></strong></h3>
 <p>This endpoint returns a list of colleges and universities.</p>
 <ul>
-<li>Path: <code>/stats/colleges</code></li>
+<li>Path: <code>/v1/stats/colleges</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -465,7 +312,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-teams"><strong><em>Get Teams</em></strong></h3>
 <p>This endpoint returns a list of teams for a given league. This endpoint is only applicable to leagues with teams and that we are licensed for with our data provider.</p>
 <ul>
-<li>Path: <code>/stats/teams</code></li>
+<li>Path: <code>/v1/stats/teams</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -499,7 +346,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-players"><strong><em>Get Players</em></strong></h3>
 <p>This endpoint returns a list of players for a given league. This endpoint is only applicable to leagues that we are licensed for players with our data provider.</p>
 <ul>
-<li>Path: <code>/stats/players</code></li>
+<li>Path: <code>/v1/stats/players</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -539,7 +386,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-events"><strong><em>Get Events</em></strong></h3>
 <p>This endpoint returns a list of events (games or races) for a given league. This endpoint is only applicable to leagues that we are licensed for events with our data provider.</p>
 <ul>
-<li>Path: <code>/stats/events</code></li>
+<li>Path: <code>/v1/stats/events</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -584,7 +431,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-daily-schedule"><strong><em>Get Daily Schedule</em></strong></h3>
 <p>This endpoint returns a list of events, grouped by day for a given league. This endpoint is only applicable to leagues that we are licensed for events with our data provider.</p>
 <ul>
-<li>Path: <code>/stats/schedules/league/daily</code></li>
+<li>Path: <code>/v1/stats/schedules/league/daily</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -628,7 +475,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-weekly-schedule"><strong><em>Get Weekly Schedule</em></strong></h3>
 <p>This endpoint returns a list of events, grouped by week for a given league. This endpoint is only applicable to leagues that we are licensed for events with our data provider and that play their games in weekly manner.</p>
 <ul>
-<li>Path: <code>/stats/schedules/league/weekly</code></li>
+<li>Path: <code>/v1/stats/schedules/league/weekly</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -670,7 +517,7 @@ This is useful in breaking up large, expensive requests, into smaller, more effi
 <h3 id="get-ap-articles"><strong><em>Get AP Articles</em></strong></h3>
 <p>This endpoint returns a list of AP Articles for leagues we are licensed to receive AP articles for.</p>
 <ul>
-<li>Path: <code>/stats/articles</code></li>
+<li>Path: <code>/v1/stats/articles</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -710,7 +557,7 @@ These endpoints do not provide a true real-time update of live data. There will 
 <h3 id="get-ticker"><strong><em>Get Ticker</em></strong></h3>
 <p>This endpoint will return a snapshot of a game in it's current live state. This endpoint is used to power the NBCSports.com ticker feed.</p>
 <ul>
-<li>Path: <code>/stats/scores/ticker</code></li>
+<li>Path: <code>/v1/stats/scores/ticker</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update <strong><em>Not</em></strong> Enabled</li>
 <li>Pagination <strong><em>Not</em></strong> Enabled</li>
@@ -737,7 +584,7 @@ These endpoints do not provide a true real-time update of live data. There will 
 <p>This endpoint will return boxscore tables for a given live event. The player column in each table will contain a reference to the player's ID number. Replacement is expected to happen on the client's end, after player feed ingestion.
 For MLB, a superscript will be provided in the player cell in addition to the player ID. This superscript contains the player's position.</p>
 <ul>
-<li>Path: <code>/stats/scores/boxscore/tables</code></li>
+<li>Path: <code>/v1/stats/scores/boxscore/tables</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -766,7 +613,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-linescore-tables"><strong><em>Get Linescore Tables</em></strong></h3>
 <p>This endpoint will return linescore tables for a given live event. The team column in each table will contain a reference to the team's ID number. Replacement is expected to happen on the client's end, after team feed ingestion.</p>
 <ul>
-<li>Path: <code>/stats/scores/linescore/tables</code></li>
+<li>Path: <code>/v1/stats/scores/linescore/tables</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -798,7 +645,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-matchup-tables"><strong><em>Get Matchup Tables</em></strong></h3>
 <p>This endpoint will return pre-game or live matchup tables for a given event. A matchup table with pre-game information will automatically convert to using live stats when a game goes live. The team column in each table will contain a reference to the team's ID number. Replacement is expected to happen on the client's end, after team feed ingestion.</p>
 <ul>
-<li>Path: <code>/stats/scores/linescore/tables</code></li>
+<li>Path: <code>/v1/stats/scores/linescore/tables</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -830,7 +677,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-play-by-play"><strong><em>Get Play by Play</em></strong></h3>
 <p>This endpoint will return play by play for a given event.</p>
 <ul>
-<li>Path: <code>/stats/scores/pbp</code></li>
+<li>Path: <code>/v1/stats/scores/pbp</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Required Parameters<ul>
@@ -854,7 +701,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-scoring-plays"><strong><em>Get Scoring Plays</em></strong></h3>
 <p>This endpoint will return a version of the play by play feed that only contains the scoring plays for a given event.</p>
 <ul>
-<li>Path: <code>/stats/scores/pbp/scoring</code></li>
+<li>Path: <code>/v1/stats/scores/pbp/scoring</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Required Parameters<ul>
@@ -878,7 +725,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-live-soccer-lineup"><strong><em>Get Live Soccer Lineup</em></strong></h3>
 <p>This endpoint will return a live and dynamic lineup of players in a given soccer game.</p>
 <ul>
-<li>Path: <code>/stats/scores/soccer/lineup</code></li>
+<li>Path: <code>/v1/stats/scores/soccer/lineup</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update <strong><em>Not</em></strong> Enabled</li>
 <li>Pagination <strong><em>Not</em></strong> Enabled</li>
@@ -898,36 +745,10 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <hr />
 <h3 id="note_1"><strong><em>NOTE</em></strong></h3>
 <p>All columns that contain ingestible data types from other endpoints will only contain an ID reference to the given data type. For example, the player column of a roster table will have a cell value of "{{playerId:1234}}". Replacemnt of that value would be on clients to perform, after they have ingested the required data type. The table metadata will also contain a list of all the required column replacements for the given table.</p>
-<h3 id="get-static-table-last-updates"><strong><em>Get Static Table Last Updates</em></strong></h3>
-<p>This endpoint will return last update timestamps for each league / static table endpoint type. It is highly recommended to use some sort of combination of optional query parameters to maximize the efficiency of this endpoint. If no query parameters are present, then a response will be generated that contains last updates for every possible league / static table endpoint combination. This is not efficient!</p>
-<ul>
-<li>Path: <strong><em><code>/stats/tables/lastupdate</code></em></strong></li>
-<li>Request Type: <code>GET</code></li>
-<li>Pagination Enabled</li>
-<li>Required Query Parameters:<ul>
-<li>None, not recommended.</li>
-</ul>
-</li>
-<li>Optional Query Parameters:<ul>
-<li><code>league</code><ul>
-<li>Corresponds to any of the league abbreviations listed in the <a href="#getting-started-with-v1">Getting Started with V1</a> section.</li>
-</ul>
-</li>
-<li><code>seasonId</code> OR <code>seasonYear</code><ul>
-<li>Corresponds to either the ID of a given season or the calendar year at the start of a season (i.e. 2024).</li>
-</ul>
-</li>
-<li><code>tableType</code><ul>
-<li>Enum value (ID or string name accepted) that corresponds to the desired table type. These can be chained together in the query parameters to retrieve multiple desired table types for a given event. If the parameter is not used, all table types will be returned. These table type values can be found using the <a href="#get-dictionary">Get Dictionary</a> endpoint.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 <h3 id="get-roster-tables"><strong><em>Get Roster Tables</em></strong></h3>
 <p>This endpoint will return static roster tables for teams.</p>
 <ul>
-<li>Path: <code>/stats/tables/roster</code></li>
+<li>Path: <code>/v1/stats/tables/roster</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -966,7 +787,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-player-season-stats-tables"><strong><em>Get Player Season Stats Tables</em></strong></h3>
 <p>This endpoint will return static season player stats tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/playerStats/season</code></li>
+<li>Path: <code>/v1/stats/tables/playerStats/season</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1006,7 +827,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-player-season-stats-per-game-tables"><strong><em>Get Player Season Stats Per Game Tables</em></strong></h3>
 <p>This endpoint will return static season player stats per game tables. These tables are only applicable to basketball leagues.</p>
 <ul>
-<li>Path: <code>/stats/tables/playerStats/season/perGame</code></li>
+<li>Path: <code>/v1/stats/tables/playerStats/season/perGame</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1041,7 +862,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-player-game-log-tables"><strong><em>Get Player Game Log Tables</em></strong></h3>
 <p>This endpoint will return static player game log tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/playerStats/gameLog</code></li>
+<li>Path: <code>/v1/stats/tables/playerStats/gameLog</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1081,7 +902,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-player-overview-tables"><strong><em>Get Player Overview Tables</em></strong></h3>
 <p>This endpoint will return static player overview tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/playerStats/overview</code></li>
+<li>Path: <code>/v1/stats/tables/playerStats/overview</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1121,7 +942,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-player-career-stats-tables"><strong><em>Get Player Career Stats Tables</em></strong></h3>
 <p>This endpoint will return static player career stats tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/playerStats/career</code></li>
+<li>Path: <code>/v1/stats/tables/playerStats/career</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1157,7 +978,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-player-career-per-game-stats-tables"><strong><em>Get Player Career Per Game Stats Tables</em></strong></h3>
 <p>This endpoint will return static player career per game stats tables. These tables are only applicable to basketball leagues.</p>
 <ul>
-<li>Path: <code>/stats/tables/playerStats/career/perGame</code></li>
+<li>Path: <code>/v1/stats/tables/playerStats/career/perGame</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1188,7 +1009,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-team-season-stats-tables"><strong><em>Get Team Season Stats Tables</em></strong></h3>
 <p>This endpoint will return static team season stats tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/teamStats/season</code></li>
+<li>Path: <code>/v1/stats/tables/teamStats/season</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1228,7 +1049,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-team-season-per-game-stats-tables"><strong><em>Get Team Season Per Game Stats Tables</em></strong></h3>
 <p>This endpoint will return static team season per game stats tables. These tables are only applicable to basketball leagues.</p>
 <ul>
-<li>Path: <code>/stats/tables/teamStats/season/perGame</code></li>
+<li>Path: <code>/v1/stats/tables/teamStats/season/perGame</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1263,7 +1084,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-team-overview-tables"><strong><em>Get Team Overview Tables</em></strong></h3>
 <p>This endpoint will return static team overview tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/teamStats/overview</code></li>
+<li>Path: <code>/v1/stats/tables/teamStats/overview</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1303,7 +1124,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-full-conference-standings-tables"><strong><em>Get Full Conference Standings Tables</em></strong></h3>
 <p>This endpoint will return static full conference standings tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/standings/conference/full</code></li>
+<li>Path: <code>/v1/stats/tables/standings/conference/full</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1346,7 +1167,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-conference-standings-overview-tables"><strong><em>Get Conference Standings Overview Tables</em></strong></h3>
 <p>This endpoint will return static full conference standings tables. These are simplified view of the full standings.</p>
 <ul>
-<li>Path: <code>/stats/tables/standings/conference/overview</code></li>
+<li>Path: <code>/v1/stats/tables/standings/conference/overview</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1390,7 +1211,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-conference-wild-card-standings-tables"><strong><em>Get Conference Wild Card Standings Tables</em></strong></h3>
 <p>This endpoint will return static conference wild card standings tables. These are for the MLB wild card race.</p>
 <ul>
-<li>Path: <code>/stats/tables/standings/conference/wildCard</code></li>
+<li>Path: <code>/v1/stats/tables/standings/conference/wildCard</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1424,7 +1245,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-full-division-standings-tables"><strong><em>Get Full Division Standings Tables</em></strong></h3>
 <p>This endpoint will return static full division standings tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/standings/division/full</code></li>
+<li>Path: <code>/v1/stats/tables/standings/division/full</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1473,7 +1294,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-full-league-standings-tables"><strong><em>Get Full League Standings Tables</em></strong></h3>
 <p>This endpoint will return static full league standings tables. This is used for EPL, since there are no conferences or divisions.</p>
 <ul>
-<li>Path: <code>/stats/tables/standings/league/full</code></li>
+<li>Path: <code>/v1/stats/tables/standings/league/full</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1506,7 +1327,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-league-standings-overview-tables"><strong><em>Get League Standings Overview Tables</em></strong></h3>
 <p>This endpoint will return static league standings overview tables. This is used for EPL, since there are no conferences or divisions. This is a simplified view of the full league standings.</p>
 <ul>
-<li>Path: <code>/stats/tables/standings/league/overview</code></li>
+<li>Path: <code>/v1/stats/tables/standings/league/overview</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1536,7 +1357,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-full-league-schedule-tables"><strong><em>Get Full League Schedule Tables</em></strong></h3>
 <p>This endpoint will return static league schedule tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/schedules/league/full</code></li>
+<li>Path: <code>/v1/stats/tables/schedules/league/full</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1568,7 +1389,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-weekly-league-schedule-tables"><strong><em>Get Weekly League Schedule Tables</em></strong></h3>
 <p>This endpoint will return static weekly league schedule tables. Applies only to sports that operate on a weekly basis.</p>
 <ul>
-<li>Path: <code>/stats/tables/schedules/league/weekly</code></li>
+<li>Path: <code>/v1/stats/tables/schedules/league/weekly</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1616,7 +1437,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-daily-league-schedule-tables"><strong><em>Get Daily League Schedule Tables</em></strong></h3>
 <p>This endpoint will return static daily league schedule tables. Applies only to sports that operate on a daily basis.</p>
 <ul>
-<li>Path: <code>/stats/tables/schedules/league/daily</code></li>
+<li>Path: <code>/v1/stats/tables/schedules/league/daily</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1655,7 +1476,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-team-schedule-tables"><strong><em>Get Team Schedule Tables</em></strong></h3>
 <p>This endpoint will return static team schedule tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/schedules/team</code></li>
+<li>Path: <code>/v1/stats/tables/schedules/team</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1695,7 +1516,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-full-league-leaders-tables"><strong><em>Get Full League Leaders Tables</em></strong></h3>
 <p>This endpoint will return static full league leaders tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/leaders/full</code></li>
+<li>Path: <code>/v1/stats/tables/leaders/full</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1731,7 +1552,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-top-league-leaders-tables"><strong><em>Get Top League Leaders Tables</em></strong></h3>
 <p>This endpoint will return static top league leaders tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/leaders/top</code></li>
+<li>Path: <code>/v1/stats/tables/leaders/top</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1767,7 +1588,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-poll-ranking-tables"><strong><em>Get Poll Ranking Tables</em></strong></h3>
 <p>This endpoint will return static poll ranking tables. This only applies to college sports.</p>
 <ul>
-<li>Path: <code>/stats/tables/polls</code></li>
+<li>Path: <code>/v1/stats/tables/polls</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1793,7 +1614,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-event-results-tables"><strong><em>Get Event Results Tables</em></strong></h3>
 <p>This endpoint will return static event results tables. This only applies to motor sports.</p>
 <ul>
-<li>Path: <code>/stats/tables/results</code></li>
+<li>Path: <code>/v1/stats/tables/results</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1825,7 +1646,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-daily-injury-tables"><strong><em>Get Daily Injury Tables</em></strong></h3>
 <p>This endpoint will return static daily injury tables.</p>
 <ul>
-<li>Path: <code>/stats/tables/injuries/daily</code></li>
+<li>Path: <code>/v1/stats/tables/injuries/daily</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
@@ -1867,7 +1688,7 @@ For MLB, a superscript will be provided in the player cell in addition to the pl
 <h3 id="get-betting-markets"><strong><em>Get Betting Markets</em></strong></h3>
 <p>This endpoint will return pre-game betting markets.</p>
 <ul>
-<li>Path: <code>/stats/betting/markets</code></li>
+<li>Path: <code>/v1/stats/betting/markets</code></li>
 <li>Request Type: <code>GET</code></li>
 <li>Last Update Enabled</li>
 <li>Pagination Enabled</li>
