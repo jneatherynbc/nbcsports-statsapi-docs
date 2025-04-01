@@ -2,7 +2,9 @@ site_name: NBCSports-StatsAPI
 site_url: "https://jneatherynbc.github.io/nbcsports-statsapi-docs/"
 nav:
   - Home: index.md
+  - Getting Started: start.md
   - V1: v1.md
+  - V2: v2.md
 
 theme:
   name: mkdocs
