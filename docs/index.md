@@ -22,10 +22,19 @@ Authorization is handled by adding two header values to each request sent to the
 - DEV: [https://scoring-dev.nbcsports.io/swagger/index.html](https://scoring-dev.nbcsports.io/swagger/index.html)
 - PROD: [https://scoring.nbcsports.io/swagger/index.html](https://scoring.nbcsports.io/swagger/index.html)
 
-## **Getting Started with V1 Endpoints**
+## **Getting Started**
+----------------------------------------
+For more details, see the [Getting Started Guide](start.md)
+
+## **V1 Endpoints**
 ----------------------------------------
 For more details, see the [V1 Guide](v1.md).
 
+## **V2 Endpoints**
+----------------------------------------
+For more details, see the [V2 Guide](v2.md).
+
 ## Latest Updates
 ----------------------------------------
+`04/01/2025` - Added V2 documentation
 `05/14/2024` - Initial Documentation Creation
